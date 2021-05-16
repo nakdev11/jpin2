@@ -1,0 +1,51 @@
+
+table.tab1 {
+	border: 1px solid gray;
+}
+.button {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 9pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 2px 2px;   /* 余白       */
+  margin        : 2px 2px;
+  background    : #e0e0e0;     /* 背景色     */
+  color         : #000000;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 1px 1px 1px #666666;  /* 影の設定 */
+  border        : 2px solid #e0e0e0;    /* 枠の指定 */
+  text-decoration: none;	/* 下線を消す */
+}
+.button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #e0e0e0;     /* 背景色     */
+  background    : #000000;     /* 文字色     */
+}
+ /* --- テーブル全体のスタイル指定 --------------- */
+.tableArea {
+  width          : 100%;             /* 100%幅     */
+  border-collapse: collapse;         /* 境界線結合 */
+  border-spacing : 0;                /* 罫線間余白 */
+  font-size      : 9pt;              /* 文字サイズ */
+  background     : #ffffff;          /* テーブル全体の背景色 */
+}
+ /* --- ヘッダーのスタイル指定 ------------------- */
+.tableArea th {
+  text-align    : center;            /* 文字位置   */
+  font-weight   : bold;              /* 太文字     */
+  padding       : 0px 0px;           /* 余白       */
+  border        : 1px #666666 solid; /* 罫線       */
+  background    : #acacac;           /* 背景色     */
+}
+ /* --- 明細のスタイル指定 ----------------------- */
+.tableArea td {
+  text-align    : center;            /* 文字位置   */
+  padding       : 0px 0px;           /* 余白       */
+  border        : 1px #666666 solid; /* 罫線       */
+}
+ /* --- 明細のｎ行スタイル指定 ------------------- */
+.tableArea tr:nth-child(2n+1) {
+  background    : #ededed;           /* 背景色     */
+}
