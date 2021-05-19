@@ -25,3 +25,11 @@
 
 - servlet、JSP、JSTL
 - データをsessionに保存
+
+
+## todo管理アプリ２(todo)
+
+- servlet, JSP, JSTL
+- MySQL
+- データをMyBatisを利用しDBに保存
+

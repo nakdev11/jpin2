@@ -5,12 +5,15 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+
+import org.apache.ibatis.session.SqlSession;
 
 /**
  * Servlet implementation class CommentServlet
@@ -44,6 +47,7 @@ public class CommentServlet extends HttpServlet {
 		} else {
 			key_topicId = (Integer)session.getAttribute("key_topicId");
 		}
+
 		String topicContent = null;
 		if (request.getParameter("topicContent") != null) {
 			topicContent = request.getParameter("topicContent");
@@ -51,8 +55,11 @@ public class CommentServlet extends HttpServlet {
 			topicContent = (String)session.getAttribute("topicContent");
 		}
 
-		CommentDao commentDao = new CommentDao();
-		List<Comment> commentList = commentDao.selectByTopicId(key_topicId);
+		ServletContext application = this.getServletContext();
+		SqlSession sqlsession = (SqlSession) application.getAttribute("sqlsession");
+		CommentDao dao = sqlsession.getMapper(CommentDao.class);
+
+		List<Comment> commentList = dao.selectByTopicId(key_topicId);
 
 		session.setAttribute("key_topicId", key_topicId);
 		session.setAttribute("topicContent", topicContent);
@@ -79,8 +86,12 @@ public class CommentServlet extends HttpServlet {
 
 		Comment cmt = new Comment(0, key_topicId, comment, name, new Date());
 
-		CommentDao commentDao = new CommentDao();
-		commentDao.insert(cmt);
+		ServletContext application = this.getServletContext();
+		SqlSession sqlsession = (SqlSession) application.getAttribute("sqlsession");
+		CommentDao dao = sqlsession.getMapper(CommentDao.class);
+
+		dao.insert(cmt);
+		sqlsession.commit();
 
 		response.sendRedirect("comment");
 

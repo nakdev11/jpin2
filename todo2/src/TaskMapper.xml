@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sample.TaskDao">
+
+	<select id="selectByTaskId" resultMap="taskResult">
+		select * from task where taskId = #{taskId}
+	</select>
+
+	<select id="selectByTaskStatus" resultMap="taskResult">
+		select * from task where taskStatus = #{taskStatus}
+	</select>
+
+	<select id="selectAll" resultMap="taskResult">
+		select * from task
+	</select>
+
+	<insert id="insert">
+		insert into task (content, deadline, assignee, taskStatus)
+			values(#{content}, #{deadline}, #{assignee}, #{taskStatus})
+	</insert>
+
+	<update id="update">
+		update task
+		set content = #{content},
+			deadline = #{deadline},
+			assignee = #{assignee},
+			taskStatus = #{taskStatus}
+		where taskId = #{taskId}
+	</update>
+
+	<update id="updateTaskStatus">
+		update task
+		set taskStatus = #{taskStatus}
+		where taskId = #{taskId}
+	</update>
+
+	<delete id="delete">
+		delete from task where taskId = #{taskId}
+	</delete>
+
+	<resultMap type="com.sample.Task" id="taskResult">
+		<result column="taskId" property="taskId" />
+		<result column="content" property="content" />
+		<result column="deadline" property="deadline" />
+		<result column="assignee" property="assignee" />
+		<result column="taskStatus" property="taskStatus" />
+	</resultMap>
+
+</mapper>

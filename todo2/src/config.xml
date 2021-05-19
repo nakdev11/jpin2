@@ -8,14 +8,13 @@
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
         <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://localhost:3306/keijiban"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/todo"/>
         <property name="username" value="root"/>
         <property name="password" value="rootroot"/>
       </dataSource>
     </environment>
   </environments>
   <mappers>
-    <mapper resource="TopicMapper.xml"/>
-    <mapper resource="CommentMapper.xml"/>
+    <mapper resource="TaskMapper.xml"/>
   </mappers>
 </configuration>
