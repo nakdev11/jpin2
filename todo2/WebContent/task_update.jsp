@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>ToDo管理 タスク修正</title>
+<link rel="stylesheet" href="css/todo.css" />
 </head>
 <body>
 <h1>ToDo管理 タスク修正</h1>
