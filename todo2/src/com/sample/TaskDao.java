@@ -21,8 +21,8 @@ public interface TaskDao {
 	// Cause: org.apache.ibatis.binding.BindingException:
 	// Parameter 'taskStatus' not found. Available parameters are [arg1, arg0, param1, param2]
 	// 上記Exception発生。下記サイトを参考にし、メソッドの引数に@Paramを追記して解決
-	// 参照 https://teratail.com/questions/289538
-	// 参照 https://qiita.com/5zm/items/0864d6641c65f976d415
+	// 参考 https://teratail.com/questions/289538
+	// 参考 https://qiita.com/5zm/items/0864d6641c65f976d415
 	public void updateTaskStatus(@Param("taskId") int taskId, @Param("taskStatus") String taskStatus);
 
 	public void delete(int taskId);
