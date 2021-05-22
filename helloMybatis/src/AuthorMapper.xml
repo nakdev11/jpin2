@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sample.AuthorDao">
+
+	<resultMap type="com.sample.Author" id="authorResult">
+		<result column="id" property="id" />
+		<result column="name" property="name" />
+	</resultMap>
+
+	<resultMap type="com.sample.Author" id="authorResultJoinBook">
+		<result column="authorId" property="id" />
+		<result column="name" property="name" />
+		<collection property="bookList" ofType="com.sample.Book">
+			<result column="bookId" property="id" />
+			<result column="title" property="title" />
+		</collection>
+	</resultMap>
+
+	<select id="findByPrimaryKey2" resultMap="authorResultJoinBook">
+		select
+			a.id as authorId,
+			a.name,
+			b.id as bookId,
+			b.title
+		from author a join book b on a.id = b.author_id
+		where a.id = #{id}
+	</select>
+
+</mapper>
