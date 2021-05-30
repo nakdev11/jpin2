@@ -17,10 +17,6 @@
 - MySQL
 - データをMybatisを利用しDBに保存
 
-## その他諸々(other)
-
-- socket通信など
-  
 ## todo管理アプリ(todo)
 
 - servlet、JSP、JSTL
@@ -33,3 +29,19 @@
 - MySQL
 - データをMyBatisを利用しDBに保存
 
+## MyBatisの練習(HelloMyBatis)
+
+- servlet, JSP, JSTL
+- MySQL
+- データをMyBatisを利用しDBに保存
+
+## JavaScriptの練習(HelloScript)
+
+- servlet, HTML, JavaScript, Ajax
+- MySQL
+- Ajaxでサーバと通信
+
+## その他諸々(other)
+
+- socket通信など
+  
